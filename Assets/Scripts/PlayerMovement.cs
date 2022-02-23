@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D myRigidBody;
     Animator myAnimator;
     CapsuleCollider2D myBodyCollider;
+    BoxCollider2D myFeetCollider;
 
     bool isAlive = true;
 
@@ -22,12 +23,14 @@ public class PlayerMovement : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
+        myFeetCollider = GetComponent<BoxCollider2D>();
     }
 
     void Update()
     {
         if (!isAlive) { return; }
         Run();
+        Jump();
         FlipSprite();
     }
 
@@ -37,13 +40,36 @@ public class PlayerMovement : MonoBehaviour
         moveInput = value.Get<Vector2>();
     }
 
-        void Run()
+    void OnJump(InputValue value)
+    {
+        if (!isAlive) { return; }
+        if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+        if (value.isPressed)
+        {
+            myRigidBody.velocity += new Vector2 (0f, jumpSpeed);
+        }
+    }
+
+    void Run()
     {
         Vector2 playerVelocity = new Vector2(moveInput.x * runSpeed, myRigidBody.velocity.y);
         myRigidBody.velocity = playerVelocity;
 
-        bool isRunning = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
-        myAnimator.SetBool("IsRunning",isRunning);
+        bool isMovingX = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+        bool isRunningOnGround = isMovingX && myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+        myAnimator.SetBool("IsRunning",isRunningOnGround);
+        
+    }
+
+    void Jump()
+    {
+        bool isAirborne = !myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+        bool isMovingUp = myRigidBody.velocity.y > Mathf.Epsilon && isAirborne;
+        bool isMovingDown = myRigidBody.velocity.y < Mathf.Epsilon && isAirborne;
+        
+        myAnimator.SetBool("IsJumpingUp",isMovingUp);
+        myAnimator.SetBool("IsJumpingDown",isMovingDown);
+        
     }
 
     void FlipSprite()

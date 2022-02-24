@@ -133,4 +133,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupSound: {fileID: 8300000, guid: a10d49fd741011949979c12ea765f34d, type: 3}
-  pointsForCoinPickup: 100
+  pointsForCoinPickup: 1

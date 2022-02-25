@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4956a52fe72bd084d81fd299742c6fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hurtKick: {x: 0, y: 0}
   hurtCoolDownTime: 0
   hurtSound: {fileID: 8300000, guid: 0739f12e91954124db5cdda7261d15a6, type: 3}
   health: 2
+  isPlayer: 0

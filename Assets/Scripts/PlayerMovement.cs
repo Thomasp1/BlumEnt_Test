@@ -56,6 +56,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Enemy")
+        {
+            var otherX = collision.transform.position.x;
+            var selfX = myRigidBody.transform.position.x;
+            var kickDirection = Mathf.Sign(selfX - otherX);
+            hurtKick = new Vector2(kickDirection * hurtKick.x, hurtKick.y );
+        }
+    }
+
     void Run()
     {
         Vector2 playerVelocity = new Vector2(moveInput.x * runSpeed, myRigidBody.velocity.y);

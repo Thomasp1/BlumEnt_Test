@@ -13,12 +13,10 @@ public class GameSession : MonoBehaviour
     [SerializeField] TextMeshProUGUI livesText;
     [SerializeField] TextMeshProUGUI scoreText;
 
-    public void ProcessPlayerDamage()
+    public void DamageLives(int damageToAdd)
     {
-        if(playerLives > 1)
-        {
-            playerLives --;
-        }
+        playerLives -= damageToAdd;
+        livesText.text = playerLives.ToString();
     }
 
     public void AddToScore(int pointsToAdd)

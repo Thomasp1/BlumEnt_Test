@@ -46,9 +46,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void FindLeftRightPoints()
     {
+        if (patrolPoints.Count == 0) {return;}
         rightMostX = patrolPoints.Max(p => p.position.x);
         leftMostX = patrolPoints.Min(p => p.position.x);
-
     }
 
     private void FlipEnemyFacing()

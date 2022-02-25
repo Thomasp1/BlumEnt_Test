@@ -9,12 +9,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float runSpeed = 10f;
     [SerializeField] float jumpSpeed = 10f;
 
+    [SerializeField] Vector2 hurtKick = new Vector2 (1f,1f);
+
     Vector2 moveInput;
 
     Rigidbody2D myRigidBody;
     Animator myAnimator;
     CapsuleCollider2D myBodyCollider;
     BoxCollider2D myFeetCollider;
+
+    Health myHealth;
 
     bool isAlive = true;
 
@@ -24,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
+        myHealth = GetComponent<Health>();
     }
 
     void Update()
@@ -32,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         Run();
         Jump();
         FlipSprite();
+        TakeDamage();
     }
 
     void OnMove(InputValue value)
@@ -80,5 +86,24 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
         }
         
+    }
+
+    void TakeDamage()
+    {
+        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        {
+            myRigidBody.velocity += hurtKick;
+            myHealth.ApplyDamage(1);
+            if (myHealth.GetHealth() <= 0)
+            {
+                Die();
+            }
+        }
+    }
+
+    void Die()
+    {
+        isAlive = false;
+        myAnimator.SetTrigger("IsDying");
     }
 }

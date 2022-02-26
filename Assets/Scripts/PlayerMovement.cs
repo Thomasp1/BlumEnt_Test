@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,9 +19,12 @@ public class PlayerMovement : MonoBehaviour
     CapsuleCollider2D myBodyCollider;
     BoxCollider2D myFeetCollider;
 
+    BoxCollider2D attackCollider;
+
     Health myHealth;
 
-    bool isAlive = true;
+    private bool isAlive = true;
+    private bool isAttacking = false;
 
     void Start()
     {
@@ -29,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
         myHealth = GetComponent<Health>();
+        attackCollider = GetComponentsInChildren<BoxCollider2D>(true).Where(col => col.gameObject.tag == "PlayerAttack").First();
     }
 
     void Update()
@@ -42,18 +47,28 @@ public class PlayerMovement : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        if (!isAlive) { return; }
+        if (!isAlive || isAttacking) { return; }
         moveInput = value.Get<Vector2>();
     }
 
     void OnJump(InputValue value)
     {
-        if (!isAlive) { return; }
+        if (!isAlive || isAttacking) { return; }
         if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
         if (value.isPressed)
         {
             myRigidBody.velocity += new Vector2 (0f, jumpSpeed);
         }
+    }
+
+    void OnFire(InputValue value)
+    {
+        if (!isAlive) { return; }
+        if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+        if (!(moveInput.x == 0)) { return ;}
+        isAttacking = value.isPressed;
+        myAnimator.SetBool("IsAttacking",value.isPressed);
+        attackCollider.gameObject.SetActive(value.isPressed);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

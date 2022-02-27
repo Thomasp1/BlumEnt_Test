@@ -1,31 +1,16 @@
 fileFormatVersion: 2
-guid: c9a105a6c1b42b84ea0ccc21c79b0e60
+guid: d6605c1dd260ddd4280cff973068e0a5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6258348882928458165
-    second: mushroom_walk_anim_strip_8_0
+      213: -383070204473861482
+    second: herochar_hit_anim_strip_3_0
   - first:
-      213: -1700240541789307417
-    second: mushroom_walk_anim_strip_8_1
+      213: -5655294235629092516
+    second: herochar_hit_anim_strip_3_1
   - first:
-      213: 5030395815178594903
-    second: mushroom_walk_anim_strip_8_2
-  - first:
-      213: -7262816221784533022
-    second: mushroom_walk_anim_strip_8_3
-  - first:
-      213: -6502187641634695907
-    second: mushroom_walk_anim_strip_8_4
-  - first:
-      213: 7038071649082671908
-    second: mushroom_walk_anim_strip_8_5
-  - first:
-      213: 3388712834061836074
-    second: mushroom_walk_anim_strip_8_6
-  - first:
-      213: -7251899048989260558
-    second: mushroom_walk_anim_strip_8_7
+      213: -3176142751176978677
+    second: herochar_hit_anim_strip_3_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -151,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mushroom_walk_anim_strip_8_0
+      name: herochar_hit_anim_strip_3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -165,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b9d96f962f1ad650800000000000000
-      internalID: 6258348882928458165
+      spriteID: 69a9c4abdaf0faaf0800000000000000
+      internalID: -383070204473861482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mushroom_walk_anim_strip_8_1
+      name: herochar_hit_anim_strip_3_1
       rect:
         serializedVersion: 2
         x: 16
@@ -186,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ed3ee94c388768e0800000000000000
-      internalID: -1700240541789307417
+      spriteID: c5183011bdb5481b0800000000000000
+      internalID: -5655294235629092516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mushroom_walk_anim_strip_8_2
+      name: herochar_hit_anim_strip_3_2
       rect:
         serializedVersion: 2
         x: 32
@@ -207,113 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75ae45b775e8fc540800000000000000
-      internalID: 5030395815178594903
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mushroom_walk_anim_strip_8_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2e79697502b453b90800000000000000
-      internalID: -7262816221784533022
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mushroom_walk_anim_strip_8_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d15dd6d3ac693c5a0800000000000000
-      internalID: -6502187641634695907
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mushroom_walk_anim_strip_8_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 423025320e04ca160800000000000000
-      internalID: 7038071649082671908
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mushroom_walk_anim_strip_8_6
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2f10105e50270f20800000000000000
-      internalID: 3388712834061836074
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mushroom_walk_anim_strip_8_7
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f48006bc341c5b90800000000000000
-      internalID: -7251899048989260558
+      spriteID: b0f0a28eef21ce3d0800000000000000
+      internalID: -3176142751176978677
       vertices: []
       indices: 
       edges: []

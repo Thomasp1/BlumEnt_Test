@@ -5841,6 +5841,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6081254589831885029, guid: 3bf65c6b90528044b8af0a0405b007f1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6134786514243640682, guid: 3bf65c6b90528044b8af0a0405b007f1, type: 3}
       propertyPath: hurtSound
       value: 
@@ -5856,6 +5860,14 @@ PrefabInstance:
     - target: {fileID: 6134786514243640682, guid: 3bf65c6b90528044b8af0a0405b007f1, type: 3}
       propertyPath: hurtKick.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978388157267236470, guid: 3bf65c6b90528044b8af0a0405b007f1, type: 3}
+      propertyPath: attackDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978388157267236470, guid: 3bf65c6b90528044b8af0a0405b007f1, type: 3}
+      propertyPath: attackPerSecond
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bf65c6b90528044b8af0a0405b007f1, type: 3}

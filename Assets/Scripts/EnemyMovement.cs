@@ -11,21 +11,28 @@ public class EnemyMovement : MonoBehaviour
     private float leftMostX;
     private float rightMostX;
     Rigidbody2D myRigidBody;
+    Health myHealth;
     Animator myAnimator;
+
+    private bool isAlive = true;
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+        myHealth = GetComponent<Health>();
         FindLeftRightPoints();
     }
 
     void Update()
     {
+        if (!isAlive) { return; }
+        CheckAlive();
         WalkToPatrolPoints();
     }
 
     void WalkToPatrolPoints()
     {
+        if (!isAlive) { return; }
         if (patrolPoints.Count == 0) {return;}
 
         myRigidBody.velocity = new Vector2 (moveSpeed,0f);
@@ -54,5 +61,17 @@ public class EnemyMovement : MonoBehaviour
     private void FlipEnemyFacing()
     {
         transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
+    }
+
+    private void CheckAlive()
+    {
+        if (myHealth == null) { return; }
+        if (myHealth.GetHealth() <= 0)
+        {
+
+            isAlive = false;
+            myRigidBody.velocity = new Vector2 (0f,0f);
+            myAnimator.SetTrigger("IsDying");
+        }
     }
 }

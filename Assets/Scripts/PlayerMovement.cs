@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     BoxCollider2D myFeetCollider;
 
     BoxCollider2D attackCollider;
+    MeleeAttacker myMeleeAttacker;
 
     Health myHealth;
 
@@ -33,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
         myHealth = GetComponent<Health>();
-        attackCollider = GetComponentsInChildren<BoxCollider2D>(true).Where(col => col.gameObject.tag == "PlayerAttack").First();
+        myMeleeAttacker = GetComponent<MeleeAttacker>();
     }
 
     void Update()
@@ -67,8 +68,8 @@ public class PlayerMovement : MonoBehaviour
         if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
         if (!(moveInput.x == 0)) { return ;}
         isAttacking = value.isPressed;
+        myMeleeAttacker.isMeleeing = value.isPressed;
         myAnimator.SetBool("IsAttacking",value.isPressed);
-        attackCollider.gameObject.SetActive(value.isPressed);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

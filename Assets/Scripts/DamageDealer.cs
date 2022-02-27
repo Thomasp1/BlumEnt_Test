@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Melee : MonoBehaviour
+public class DamageDealer : MonoBehaviour
 {
     [SerializeField] int damage = 1;
+    public bool playerDamage = true;
 
     public int GetDamage()
     {
@@ -14,13 +15,11 @@ public class Melee : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         Health otherHealth = other.GetComponent<Health>();
-        if (other.tag == "Enemy" || other.tag == "Player")
+
+        if ((other.tag == "Enemy" && playerDamage) || (other.tag == "Player" && !playerDamage))
         {
-            
             otherHealth.ApplyDamage(damage);
-            Debug.Log("Enemy Damaged");
         }
 
     }
-
 }

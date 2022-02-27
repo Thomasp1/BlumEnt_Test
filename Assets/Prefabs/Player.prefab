@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 3000863147473554783}
   - component: {fileID: 22491352943583452}
   - component: {fileID: 4399161199364996664}
+  - component: {fileID: 8953191168537522220}
+  - component: {fileID: 8978388157267236470}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -94,7 +96,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 189563727
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -4099418257374492983, guid: 0bf588c8774b37e4ba97190a378b2971, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -151,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 10
   jumpSpeed: 10
+  hurtKick: {x: 1, y: 1}
 --- !u!70 &3000863147473554783
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -214,3 +217,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.43875456, y: 0.06260526}
   m_EdgeRadius: 0
+--- !u!114 &8953191168537522220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5999051426299152376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4956a52fe72bd084d81fd299742c6fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hurtCoolDownTime: 0.5
+  hurtSound: {fileID: 8300000, guid: 1856823524d2484408d446168491c544, type: 3}
+  health: 3
+  isPlayer: 1
+--- !u!114 &8978388157267236470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5999051426299152376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b1e7777e257114da71ce82ddc75ce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleePrefab: {fileID: 5199908764290535552, guid: e953f920b556dbf4da9195035060b32f, type: 3}
+  attackPerSecond: 3
+  isMeleeing: 0

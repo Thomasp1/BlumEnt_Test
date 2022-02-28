@@ -13,6 +13,27 @@ public class GameSession : MonoBehaviour
     [SerializeField] TextMeshProUGUI livesText;
     [SerializeField] TextMeshProUGUI scoreText;
 
+    static GameSession instance;
+
+    void Awake()
+    {
+        ManageSingleton();
+    }
+
+    void ManageSingleton()
+    {
+        if(instance != null)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     public void DamageLives(int damageToAdd)
     {
         playerLives -= damageToAdd;
@@ -23,6 +44,11 @@ public class GameSession : MonoBehaviour
     {
         playerScore += pointsToAdd;
         scoreText.text =  playerScore.ToString();
+    }
+
+    public void ResetScore()
+    {
+        playerScore = 0;
     }
 
     void Start() 

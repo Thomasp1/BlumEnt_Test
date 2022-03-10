@@ -20,4 +20,10 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene("Main_Menu");
     }
+        
+    public void QuitGame()
+    {
+        Debug.Log("Quitting Game");
+        Application.Quit();
+    }
 }

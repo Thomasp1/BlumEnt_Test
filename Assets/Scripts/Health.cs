@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,18 @@ public class Health : MonoBehaviour
     [SerializeField] float hurtCoolDownTime = 0.1f;
     private bool invulnerable = false;
     [SerializeField] AudioClip hurtSound;
+
+    [SerializeField] float fullHealth = 50;
     [SerializeField] private int health = 50;
 
     [SerializeField] bool isPlayer = false;
+
+    public event Action onHealthChange;
+
+    public float GetFullHealth()
+    {
+        return fullHealth;
+    }
 
     public int GetHealth()
     {
@@ -27,14 +37,14 @@ public class Health : MonoBehaviour
         {
             invulnerable = true;
             health -= dmg;
-            AudioSource.PlayClipAtPoint(hurtSound,Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(hurtSound, Camera.main.transform.position);
             StartCoroutine(JustHurt());
 
-            if (isPlayer)
+            if (onHealthChange != null)
             {
-                var session = FindObjectOfType<GameSession>();
-                session.DamageLives(dmg);
+                onHealthChange();
             }
+
         }
     }
 

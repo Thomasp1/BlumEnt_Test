@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 10
-  jumpSpeed: 10
-  hurtKick: {x: 1, y: 1}
+  jumpSpeed: 21
+  hurtKick: {x: 20, y: 1}
 --- !u!70 &3000863147473554783
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -189,7 +189,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 728d92a631f82ad4db248f02e3a32e76, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &4399161199364996664
 BoxCollider2D:
@@ -231,6 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hurtCoolDownTime: 0.5
   hurtSound: {fileID: 8300000, guid: 1856823524d2484408d446168491c544, type: 3}
+  fullHealth: 3
   health: 3
   isPlayer: 1
 --- !u!114 &8978388157267236470
@@ -247,4 +248,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meleePrefab: {fileID: 5199908764290535552, guid: e953f920b556dbf4da9195035060b32f, type: 3}
   attackPerSecond: 3
+  attackDistance: 1
   isMeleeing: 0

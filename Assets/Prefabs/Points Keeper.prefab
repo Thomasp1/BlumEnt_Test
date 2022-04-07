@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5538160650218182511}
   - component: {fileID: 5538160650218182510}
   m_Layer: 0
-  m_Name: Game Session
+  m_Name: Points Keeper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

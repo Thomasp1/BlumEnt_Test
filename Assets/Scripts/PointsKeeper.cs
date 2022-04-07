@@ -1,17 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-public class GameSession : MonoBehaviour
+public class PointsKeeper : MonoBehaviour
 {
 
-    int playerScore = 0;
+    private int playerScore = 0;
 
-    [SerializeField] TextMeshProUGUI livesText;
-    [SerializeField] TextMeshProUGUI scoreText;
+    static PointsKeeper instance;
 
-    static GameSession instance;
+    public event Action onPointsChange;
 
     void Awake()
     {
@@ -32,14 +31,27 @@ public class GameSession : MonoBehaviour
         }
     }
 
+    public int GetScore()
+    {
+        return playerScore;
+    }
+
     public void AddToScore(int pointsToAdd)
     {
         playerScore += pointsToAdd;
+        if (onPointsChange != null)
+        {
+            onPointsChange();
+        }
     }
 
     public void ResetScore()
     {
         playerScore = 0;
+        if (onPointsChange != null)
+        {
+            onPointsChange();
+        }
     }
 
 }

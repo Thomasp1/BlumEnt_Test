@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    GameSession gameSession;
+    PointsKeeper pointsKeeper;
     void Awake()
     {
-        gameSession = FindObjectOfType<GameSession>();
+        pointsKeeper = FindObjectOfType<PointsKeeper>();
     }
     public void LoadGame()
     {
-        gameSession.ResetScore();
+        pointsKeeper.ResetScore();
         SceneManager.LoadScene("Level1");
     }
 

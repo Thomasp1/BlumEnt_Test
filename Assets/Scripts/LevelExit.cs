@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    float levelLoadDelay = 0.5f;
+    LevelManager levelManager;
+    void OnTriggerEnter2D(Collider2D other) 
     {
         
+        if (other.tag == "Player")
+        {
+            levelManager = FindObjectOfType<LevelManager>();
+            StartCoroutine(LoadNextLevel());
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator LoadNextLevel()
     {
-        
+        yield return new WaitForSecondsRealtime(levelLoadDelay);
+        levelManager.LoadNextLevel();
     }
 }

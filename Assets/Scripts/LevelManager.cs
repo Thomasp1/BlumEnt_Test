@@ -20,6 +20,17 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene("Main_Menu");
     }
+
+    public void LoadNextLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        {
+            nextSceneIndex = 0;
+        }
+        SceneManager.LoadScene(nextSceneIndex);
+    }
         
     public void QuitGame()
     {
